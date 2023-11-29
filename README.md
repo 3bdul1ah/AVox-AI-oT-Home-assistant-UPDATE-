@@ -1,4 +1,4 @@
-# Smart Home Automation System with Voice Control, Node-RED Integration, and DHT22 Sensor Monitoring
+# IoT-Based-Voice-Controlled-Home-Automation-Using-NodeMCU-andRaspberry-pi
 
 This project combines an ESP32-based home automation system, a voice control module using Python, integrates with Node-RED for additional processing and UI capabilities, and includes DHT22 sensor monitoring through a Raspberry Pi 4 server.
 
