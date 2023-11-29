@@ -48,12 +48,7 @@ This project combines an ESP32-based home automation system, a voice control mod
 3. Use MQTT nodes to publish processed commands to ESP32 MQTT topics.
 4. Raspberry Pi 4 serves as the server hosting Node-RED.
 
-### DHT22 Sensor Integration with Raspberry Pi
-
-1. Connect DHT22 sensor to Raspberry Pi.
-2. Install required Python packages: `pip install Adafruit_DHT`.
-3. Use Node-RED's exec node or a custom Python script to read sensor data.
-4. Publish DHT22 readings to MQTT topic, e.g., `Home/DHT22`.
+![Node-RED Flow](file:///home/abdullah/Downloads/Screenshot%20from%202023-11-30%2005-13-49.webp)
 
 ## IoT Dashboard
 
