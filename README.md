@@ -48,7 +48,7 @@ This project combines an ESP32-based home automation system, a voice control mod
 3. Use MQTT nodes to publish processed commands to ESP32 MQTT topics.
 4. Raspberry Pi 4 serves as the server hosting Node-RED.
 
-![Node-RED Flow](file:///home/abdullah/Downloads/Screenshot%20from%202023-11-30%2005-13-49.webp)
+[Node-RED Flow](file:///home/abdullah/Downloads/Screenshot%20from%202023-11-30%2005-13-49.webp)
 
 ## IoT Dashboard
 
