@@ -1,7 +1,7 @@
 # IoT-Based-Voice-Controlled-Home-Automation-Using-NodeMCU-andRaspberry-pi
 
 This project combines an ESP32-based home automation system, a voice control module using Python, integrates with Node-RED for additional processing and UI capabilities, and includes DHT22 sensor monitoring through a Raspberry Pi 4 server.
-
+![Project Prototype](https://eu-central.storage.cloudconvert.com/tasks/20e8386b-9e7f-4010-8b29-5f9210d74fe3/Screenshot%20from%202023-11-30%2005-13-49.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cloudconvert-production%2F20231129%2Ffra%2Fs3%2Faws4_request&X-Amz-Date=20231129T211400Z&X-Amz-Expires=86400&X-Amz-Signature=4ca1d7b7923cfcd3b04d8a8cfba87b929169c078fa86092136a74460c57be676&X-Amz-SignedHeaders=host&response-content-disposition=inline%3B%20filename%3D%22Screenshot%20from%202023-11-30%2005-13-49.webp%22&response-content-type=image%2Fwebp&x-id=GetObject)
 ## ESP32 Home Automation System
 
 ### Requirements
