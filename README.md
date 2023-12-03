@@ -69,10 +69,15 @@ import the necessary libraries: `speech_recognition` for voice recognition, `pah
 
 sets up the configuration for the MQTT broker, including the server address, port, and the topic to which voice commands will be published.
 
+### Initialize Speech Recognition Module
+![Initialize Speech Recognition Module](https://eu-central.storage.cloudconvert.com/tasks/8c8bb79b-dabd-4980-9f18-d2e0d78dfec0/Screenshot%20from%202023-12-03%2010-17-33.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cloudconvert-production%2F20231203%2Ffra%2Fs3%2Faws4_request&X-Amz-Date=20231203T022259Z&X-Amz-Expires=86400&X-Amz-Signature=4a6ca1c482a8b85d8729edacf591a52fe4248854298fce146d0d1a5a0333583a&X-Amz-SignedHeaders=host&response-content-disposition=inline%3B%20filename%3D%22Screenshot%20from%202023-12-03%2010-17-33.webp%22&response-content-type=image%2Fwebp&x-id=GetObject)
 
-sets up the configuration for the MQTT broker, including the server address, port, and the topic to which voice commands will be published.
+creates an instance of the `recognizer` class from the `speech_recognition` library to manage speech recognition.
 
-import the necessary libraries: `speech_recognition` for voice recognition, `paho.mqtt.publish` for MQTT communication, and `time` for introducing delays.
+### Listen For Command Function 
+![Listen For Command Function ](https://eu-central.storage.cloudconvert.com/tasks/6bb2eab5-0826-4eb2-838a-8b2209ec387f/Screenshot%20from%202023-12-03%2010-20-52.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cloudconvert-production%2F20231203%2Ffra%2Fs3%2Faws4_request&X-Amz-Date=20231203T022101Z&X-Amz-Expires=86400&X-Amz-Signature=40611933b94777d4b95af0b14d71c6fdab594e7e0359c8ee69e74452475a06bd&X-Amz-SignedHeaders=host&response-content-disposition=inline%3B%20filename%3D%22Screenshot%20from%202023-12-03%2010-20-52.webp%22&response-content-type=image%2Fwebp&x-id=GetObject)
+
+This function captures audio from the microphone, adjusts for ambient noise, and uses Google Speech Recognition to convert the audio to text. It returns the recognized `command` or `None` if there's an issue.
 
 ## Node-RED Integration
 
