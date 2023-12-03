@@ -23,6 +23,9 @@ sets up Wi-Fi credentials, MQTT broker information, and a unique client ID for t
 
 defines MQTT topics and pin configurations for both rooms, including light and fan control topics and corresponding pin assignments for the L298N motor driver.
 
+### Objects Initialization
+![Objects Initialization](https://eu-central.storage.cloudconvert.com/tasks/9a9603b0-788e-4bf4-8b95-4336df5b0571/Screenshot%20from%202023-12-03%2009-36-34.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cloudconvert-production%2F20231203%2Ffra%2Fs3%2Faws4_request&X-Amz-Date=20231203T013717Z&X-Amz-Expires=86400&X-Amz-Signature=df6639def8f979465c627e00e89c4096546f8bfa6913f50a0ded54f07f85c039&X-Amz-SignedHeaders=host&response-content-disposition=inline%3B%20filename%3D%22Screenshot%20from%202023-12-03%2009-36-34.webp%22&response-content-type=image%2Fwebp&x-id=GetObject)
+
 
 ## Voice Control Module
 
