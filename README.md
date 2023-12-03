@@ -79,6 +79,17 @@ creates an instance of the `recognizer` class from the `speech_recognition` libr
 
 This function captures audio from the microphone, adjusts for ambient noise, and uses Google Speech Recognition to convert the audio to text. It returns the recognized `command` or `None` if there's an issue.
 
+### Publish Command Function
+![Publish Command Function](https://eu-central.storage.cloudconvert.com/tasks/034e564e-6284-4a15-a098-22e2f959a3fa/Screenshot%20from%202023-12-03%2010-26-25.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cloudconvert-production%2F20231203%2Ffra%2Fs3%2Faws4_request&X-Amz-Date=20231203T022651Z&X-Amz-Expires=86400&X-Amz-Signature=384480a7e22e45f6fce06b5d5c7ec0e0c9c7895559f97e4326b2690e19e4ff07&X-Amz-SignedHeaders=host&response-content-disposition=inline%3B%20filename%3D%22Screenshot%20from%202023-12-03%2010-26-25.webp%22&response-content-type=image%2Fwebp&x-id=GetObject)
+
+This function publishes the recognized command to `input/voice` MQTT topic in Node-RED using the `publish.single` function.
+
+### Main Execution
+![Main Execution](https://eu-central.storage.cloudconvert.com/tasks/7e3a0a11-ba65-4c38-84a7-ef28f2afd45f/Screenshot%20from%202023-12-03%2010-29-17.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cloudconvert-production%2F20231203%2Ffra%2Fs3%2Faws4_request&X-Amz-Date=20231203T022927Z&X-Amz-Expires=86400&X-Amz-Signature=0e18cdb505259f6c1778aa51ccb4728a62c3390667bf192d27443ecf338bb67a&X-Amz-SignedHeaders=host&response-content-disposition=inline%3B%20filename%3D%22Screenshot%20from%202023-12-03%2010-29-17.webp%22&response-content-type=image%2Fwebp&x-id=GetObject)
+
+The script enters an infinite loop to continuously listen for voice commands. If a command is recognized, it is published to the MQTT broker. A 2-second delay is added between iterations.
+
+
 ## Node-RED Integration
 
 1. Set up Node-RED with MQTT nodes to receive voice commands from `input/voice`.
