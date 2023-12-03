@@ -29,7 +29,7 @@ defines MQTT topics and pin configurations for both rooms, including light and f
 create instances of the `WiFiClient` and `PubSubClient` classes to handle Wi-Fi and MQTT communication, respectively.
 
 ### Callback Function
-![Callback Function](https://eu-central.storage.cloudconvert.com/tasks/18d5df98-5653-4958-9f93-7e6c09f0ec5c/Screenshot%20from%202023-12-03%2009-39-56.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cloudconvert-production%2F20231203%2Ffra%2Fs3%2Faws4_request&X-Amz-Date=20231203T014010Z&X-Amz-Expires=86400&X-Amz-Signature=3df0e0f346d31a005118d22b51a4f0e4a686acbb46616ed7d5e4acc9336ac6ab&X-Amz-SignedHeaders=host&response-content-disposition=inline%3B%20filename%3D%22Screenshot%20from%202023-12-03%2009-39-56.webp%22&response-content-type=image%2Fwebp&x-id=GetObject)
+![Callback Function](https://eu-central.storage.cloudconvert.com/tasks/6bd69c58-42c5-4eb2-93fc-faea591c42a5/Screenshot%20from%202023-12-03%2009-44-39.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cloudconvert-production%2F20231203%2Ffra%2Fs3%2Faws4_request&X-Amz-Date=20231203T014450Z&X-Amz-Expires=86400&X-Amz-Signature=7ca03217259731901948c4991332d73371d54c5851c4347c9fb7d299fcc2d5a2&X-Amz-SignedHeaders=host&response-content-disposition=inline%3B%20filename%3D%22Screenshot%20from%202023-12-03%2009-44-39.webp%22&response-content-type=image%2Fwebp&x-id=GetObject)
 
 This function is invoked when an MQTT message is received. It parses the topic and payload, calling the appropriate functions for light or fan control.
 
