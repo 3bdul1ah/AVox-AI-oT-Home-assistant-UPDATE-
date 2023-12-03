@@ -2,7 +2,7 @@
     {
         "id": "2d794f9e07d29405",
         "type": "tab",
-        "label": "Process Voice Commands",
+        "label": "Node-RED IoT Flow",
         "disabled": false,
         "info": "",
         "env": []
@@ -21,8 +21,8 @@
         "correl": "",
         "expiry": "",
         "broker": "d6670896eb4c043f",
-        "x": 650,
-        "y": 80,
+        "x": 810,
+        "y": 100,
         "wires": []
     },
     {
@@ -39,8 +39,8 @@
         "correl": "",
         "expiry": "",
         "broker": "d6670896eb4c043f",
-        "x": 630,
-        "y": 240,
+        "x": 790,
+        "y": 360,
         "wires": []
     },
     {
@@ -69,8 +69,8 @@
         "offcolor": "",
         "animate": false,
         "className": "/* Style for all switch widgets */ .ui-switch {   width: 50px; /* Adjust the width as needed */   height: 30px; /* Adjust the height as needed */   background-color: #ccc; /* Background color when the switch is off */   border: 1px solid #999;   border-radius: 15px; /* To make it look like a circular button */   position: relative;   display: inline-block; /* To align switches horizontally */ }  /* Style for the switch when it's in the 'on' state */ .ui-switch.ui-switch-checked {   background-color: #00FF00; /* Background color when the switch is on */ }  /* Style for the slider button inside the switch */ .ui-switch .slider {   width: 25px; /* Width of the sliding button */   height: 25px; /* Height of the sliding button */   background-color: #fff; /* Color of the sliding button */   border: 1px solid #999;   border-radius: 50%; /* To make it look like a circular button */   position: absolute;   top: 2px; /* Adjust the top position as needed */   transition: 0.4s; }",
-        "x": 190,
-        "y": 260,
+        "x": 210,
+        "y": 360,
         "wires": [
             [
                 "52dc4b742b95a87c"
@@ -137,8 +137,8 @@
         "offcolor": "",
         "animate": false,
         "className": "/* Style for all switch widgets */ .ui-switch {   width: 50px; /* Adjust the width as needed */   height: 30px; /* Adjust the height as needed */   background-color: #ccc; /* Background color when the switch is off */   border: 1px solid #999;   border-radius: 15px; /* To make it look like a circular button */   position: relative;   display: inline-block; /* To align switches horizontally */ }  /* Style for the switch when it's in the 'on' state */ .ui-switch.ui-switch-checked {   background-color: #00FF00; /* Background color when the switch is on */ }  /* Style for the slider button inside the switch */ .ui-switch .slider {   width: 25px; /* Width of the sliding button */   height: 25px; /* Height of the sliding button */   background-color: #fff; /* Color of the sliding button */   border: 1px solid #999;   border-radius: 50%; /* To make it look like a circular button */   position: absolute;   top: 2px; /* Adjust the top position as needed */   transition: 0.4s; }",
-        "x": 210,
-        "y": 140,
+        "x": 190,
+        "y": 160,
         "wires": [
             [
                 "8bcdcc8a724f198b"
@@ -171,8 +171,8 @@
         "offcolor": "",
         "animate": false,
         "className": "/* Style for all switch widgets */ .ui-switch {   width: 50px; /* Adjust the width as needed */   height: 30px; /* Adjust the height as needed */   background-color: #ccc; /* Background color when the switch is off */   border: 1px solid #999;   border-radius: 15px; /* To make it look like a circular button */   position: relative;   display: inline-block; /* To align switches horizontally */ }  /* Style for the switch when it's in the 'on' state */ .ui-switch.ui-switch-checked {   background-color: #00FF00; /* Background color when the switch is on */ }  /* Style for the slider button inside the switch */ .ui-switch .slider {   width: 25px; /* Width of the sliding button */   height: 25px; /* Height of the sliding button */   background-color: #fff; /* Color of the sliding button */   border: 1px solid #999;   border-radius: 50%; /* To make it look like a circular button */   position: absolute;   top: 2px; /* Adjust the top position as needed */   transition: 0.4s; }",
-        "x": 190,
-        "y": 300,
+        "x": 210,
+        "y": 440,
         "wires": [
             [
                 "382b69f88801cce0"
@@ -193,7 +193,7 @@
         "correl": "",
         "expiry": "",
         "broker": "d6670896eb4c043f",
-        "x": 650,
+        "x": 810,
         "y": 160,
         "wires": []
     },
@@ -211,8 +211,8 @@
         "correl": "",
         "expiry": "",
         "broker": "d6670896eb4c043f",
-        "x": 630,
-        "y": 320,
+        "x": 790,
+        "y": 440,
         "wires": []
     },
     {
@@ -220,19 +220,18 @@
         "type": "function",
         "z": "2d794f9e07d29405",
         "name": "Process Voice Command",
-        "func": "var command = msg.payload;\nvar lightStatusRoom1;\n\nif (command === \"turn on room one light\") {\n    lightStatusRoom1 = \"on\";\n} else if (command === \"turn off room one light\") {\n    lightStatusRoom1 = \"off\";\n} else if (command === \"turn on lights\") {\n    lightStatusRoom1 = \"on\";  // Set the light to 100% intensity\n} else if (command === \"turn off lights\") {\n    lightStatusRoom1 = \"off\";\n} else if (command === \"room one light 25%\") {\n    lightStatusRoom1 = \"twentyfive\";\n} else if (command === \"room one light 50%\") {\n    lightStatusRoom1 = \"fifty\";\n} else if (command === \"room one light 75%\") {\n    lightStatusRoom1 = \"seventyfive\";\n} else if (command === \"room one light 25%\") {\n    lightStatusRoom1 = \"twentyfive\";\n} else if (command === \"room one light 50%\") {\n    lightStatusRoom1 = \"fifty\";\n} else if (command === \"room one light 75%\") {\n    lightStatusRoom1 = \"seventyfive\";\n} else {\n    return null;\n}\n\nmsg.topic = \"Home/Room1/Light\";\nmsg.payload = lightStatusRoom1;\nreturn msg;",
+        "func": "var command = msg.payload;\nvar lightStatusRoom1;\n\nif (command === \"turn on room one light\") {\n    lightStatusRoom1 = \"on\";\n\n} else if (command === \"turn off room one light\") {\n    lightStatusRoom1 = \"off\";\n\n} else if (command === \"turn on lights\") {\n    lightStatusRoom1 = \"on\";  \n\n} else if (command === \"turn off lights\") {\n    lightStatusRoom1 = \"off\";\n\n} else if (command === \"room one light 25%\") {\n    lightStatusRoom1 = \"twentyfive\";\n\n} else if (command === \"room one light 50%\") {\n    lightStatusRoom1 = \"fifty\";\n\n} else if (command === \"room one light 75%\") {\n    lightStatusRoom1 = \"seventyfive\";\n\n} else {\n    return null;\n}\n\nmsg.topic = \"Home/Room1/Light\";\nmsg.payload = lightStatusRoom1;\nreturn msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 410,
+        "x": 530,
         "y": 100,
         "wires": [
             [
-                "1630cb1ef4140b87",
-                "7e5a27526cad518a"
+                "1630cb1ef4140b87"
             ]
         ]
     },
@@ -241,19 +240,18 @@
         "type": "function",
         "z": "2d794f9e07d29405",
         "name": "Process Voice Command",
-        "func": "var command = msg.payload;\nvar fanStatusRoom1;\n\nif (command === \"turn on room one fan\") {\n    fanStatusRoom1 = \"on\";\n} else if (command === \"turn off room one fan\") {\n    fanStatusRoom1 = \"off\";\n} else if (command === \"turn on fans\") {\n    fanStatusRoom1 = \"on\";  // Set the fan to 100% speed\n} else if (command === \"turn off fans\") {\n    fanStatusRoom1 = \"off\";\n} else if (command === \"room one fan 25%\") {\n    fanStatusRoom1 = \"twentyfive\";\n} else if (command === \"room one fan 50%\") {\n    fanStatusRoom1 = \"fifty\";\n} else if (command === \"room one fan 75%\") {\n    fanStatusRoom1 = \"seventyfive\";\n} else {\n    return null;\n}\n\nmsg.topic = \"Home/Room1/Fan\";\nmsg.payload = fanStatusRoom1;\nreturn msg;",
+        "func": "var command = msg.payload;\nvar fanStatusRoom1;\n\nif (command === \"turn on room one fan\") {\n    fanStatusRoom1 = \"on\";\n\n} else if (command === \"turn off room one fan\") {\n    fanStatusRoom1 = \"off\";\n\n} else if (command === \"turn on fans\") {\n    fanStatusRoom1 = \"on\";  \n\n} else if (command === \"turn off fans\") {\n    fanStatusRoom1 = \"off\";\n\n} else if (command === \"room one fan 25%\") {\n    fanStatusRoom1 = \"twentyfive\";\n\n} else if (command === \"room one fan 50%\") {\n    fanStatusRoom1 = \"fifty\";\n\n} else if (command === \"room one fan 75%\") {\n    fanStatusRoom1 = \"seventyfive\";\n    \n} else {\n    return null;\n}\n\nmsg.topic = \"Home/Room1/Fan\";\nmsg.payload = fanStatusRoom1;\nreturn msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 410,
-        "y": 140,
+        "x": 530,
+        "y": 160,
         "wires": [
             [
-                "0ad96791724877dd",
-                "14465682328f59b6"
+                "0ad96791724877dd"
             ]
         ]
     },
@@ -262,20 +260,18 @@
         "type": "function",
         "z": "2d794f9e07d29405",
         "name": "Process Voice Command",
-        "func": "var command = msg.payload;\nvar lightStatusRoom2;\n\nif (command === \"turn on room two light\") {\n    lightStatusRoom2 = \"on\";\n} else if (command === \"turn off room two light\") {\n    lightStatusRoom2 = \"off\";\n} else if (command === \"turn on lights\") {\n    lightStatusRoom2 = \"on\";  // Set the light to 100% intensity\n} else if (command === \"turn off lights\") {\n    lightStatusRoom2 = \"off\";\n} else if (command === \"room two light 25%\") {\n    lightStatusRoom2 = \"twentyfive\";\n} else if (command === \"room two light 50%\") {\n    lightStatusRoom2 = \"fifty\";\n} else if (command === \"room two light 75%\") {\n    lightStatusRoom2 = \"seventyfive\";\n} else if (command === \"room two light 25%\") {\n    lightStatusRoom2 = \"twentyfive\";\n} else if (command === \"room two light 50%\") {\n    lightStatusRoom2  = \"fifty\";\n} else if (command === \"room two light 75%\") {\n    lightStatusRoom2= \"seventyfive\";\n} else {\n    return null;\n}\n\nmsg.topic = \"Home/Room2/Light\";\nmsg.payload = lightStatusRoom2;\nreturn msg;",
+        "func": "var command = msg.payload;\nvar lightStatusRoom2;\n\nif (command === \"turn on room two light\") {\n    lightStatusRoom2 = \"on\";\n\n} else if (command === \"turn off room two light\") {\n    lightStatusRoom2 = \"off\";\n\n} else if (command === \"turn on lights\") {\n    lightStatusRoom2 = \"on\";  \n\n} else if (command === \"turn off lights\") {\n    lightStatusRoom2 = \"off\";\n\n} else if (command === \"room two light 25%\") {\n    lightStatusRoom2 = \"twentyfive\";\n\n} else if (command === \"room two light 50%\") {\n    lightStatusRoom2 = \"fifty\";\n\n} else if (command === \"room two light 75%\") {\n    lightStatusRoom2 = \"seventyfive\";\n\n} else {\n    return null;\n}\n\nmsg.topic = \"Home/Room2/Light\";\nmsg.payload = lightStatusRoom2;\nreturn msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 390,
-        "y": 260,
+        "x": 530,
+        "y": 360,
         "wires": [
             [
-                "e2e4b45e93addfe8",
-                "65ec29fa33797a07",
-                "87d20c82ea61f743"
+                "e2e4b45e93addfe8"
             ]
         ]
     },
@@ -284,15 +280,15 @@
         "type": "function",
         "z": "2d794f9e07d29405",
         "name": "Process Voice Command",
-        "func": "var command = msg.payload;\nvar fanStatusRoom2;\n\nif (command === \"turn on room two fan\") {\n    fanStatusRoom2 = \"on\";\n} else if (command === \"turn off room two fan\") {\n    fanStatusRoom2 = \"off\";\n} else if (command === \"turn on fans\") {\n    fanStatusRoom2 = \"on\";  // Set the fan to 100% speed\n} else if (command === \"turn off fans\") {\n    fanStatusRoom2 = \"off\";\n} else if (command === \"room two fan 25%\") {\n    fanStatusRoom2 = \"twentyfive\";\n} else if (command === \"room two fan 50%\") {\n    fanStatusRoom2 = \"fifty\";\n} else if (command === \"room two fan 75%\") {\n    fanStatusRoom2 = \"seventyfive\";\n} else {\n    return null;\n}\n\nmsg.topic = \"Home/Room2/Fan\";\nmsg.payload = fanStatusRoom2;\nreturn msg;",
+        "func": "var command = msg.payload;\nvar fanStatusRoom2;\n\nif (command === \"turn on room two fan\") {\n    fanStatusRoom2 = \"on\";\n\n} else if (command === \"turn off room two fan\") {\n    fanStatusRoom2 = \"off\";\n\n} else if (command === \"turn on fans\") {\n    fanStatusRoom2 = \"on\";  \n\n} else if (command === \"turn off fans\") {\n    fanStatusRoom2 = \"off\";\n\n} else if (command === \"room two fan 25%\") {\n    fanStatusRoom2 = \"twentyfive\";\n\n} else if (command === \"room two fan 50%\") {\n    fanStatusRoom2 = \"fifty\";\n\n} else if (command === \"room two fan 75%\") {\n    fanStatusRoom2 = \"seventyfive\";\n    \n} else {\n    return null;\n}\n\nmsg.topic = \"Home/Room2/Fan\";\nmsg.payload = fanStatusRoom2;\nreturn msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 390,
-        "y": 300,
+        "x": 530,
+        "y": 440,
         "wires": [
             [
                 "c4d1afa920cdd57a"
@@ -312,15 +308,15 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 160,
-        "y": 200,
+        "x": 80,
+        "y": 260,
         "wires": [
             [
                 "f4f4e8a30baafe40",
                 "8bcdcc8a724f198b",
                 "52dc4b742b95a87c",
                 "382b69f88801cce0",
-                "f4df26be384e086f"
+                "5f16860eb5eab57c"
             ]
         ]
     },
@@ -333,13 +329,12 @@
         "dht": "22",
         "pintype": "0",
         "pin": "4",
-        "x": 630,
-        "y": 400,
+        "x": 850,
+        "y": 680,
         "wires": [
             [
                 "f49286a030e5ad3e",
-                "e0da55e8b18af0e8",
-                "fa5a3b4363874105"
+                "e0da55e8b18af0e8"
             ]
         ]
     },
@@ -364,30 +359,13 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 450,
-        "y": 440,
+        "x": 670,
+        "y": 680,
         "wires": [
             [
                 "787477585adb4994"
             ]
         ]
-    },
-    {
-        "id": "a964f642412933c6",
-        "type": "debug",
-        "z": "2d794f9e07d29405",
-        "name": "debug 10",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 880,
-        "y": 440,
-        "wires": []
     },
     {
         "id": "67a62e763ac9ffab",
@@ -413,8 +391,8 @@
         "seg2": "",
         "diff": false,
         "className": "",
-        "x": 1110,
-        "y": 500,
+        "x": 1330,
+        "y": 800,
         "wires": []
     },
     {
@@ -429,13 +407,13 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 880,
-        "y": 320,
+        "x": 1100,
+        "y": 600,
         "wires": [
             [
-                "a00a33d28897b695",
                 "8b68a82bd602230c",
-                "5a5a69cbdd12b480"
+                "5a5a69cbdd12b480",
+                "0fdce4ebdb055333"
             ]
         ]
     },
@@ -451,32 +429,15 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 870,
-        "y": 480,
+        "x": 1090,
+        "y": 780,
         "wires": [
             [
-                "a964f642412933c6",
                 "67a62e763ac9ffab",
-                "302e5527d223b0a6"
+                "302e5527d223b0a6",
+                "cc6ea0dd28adb79d"
             ]
         ]
-    },
-    {
-        "id": "a00a33d28897b695",
-        "type": "debug",
-        "z": "2d794f9e07d29405",
-        "name": "debug 11",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 880,
-        "y": 280,
-        "wires": []
     },
     {
         "id": "8b68a82bd602230c",
@@ -516,8 +477,8 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 1120,
-        "y": 280,
+        "x": 1340,
+        "y": 560,
         "wires": [
             []
         ]
@@ -560,8 +521,8 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 1130,
-        "y": 440,
+        "x": 1350,
+        "y": 740,
         "wires": [
             []
         ]
@@ -590,8 +551,8 @@
         "seg2": "",
         "diff": false,
         "className": "",
-        "x": 1120,
-        "y": 320,
+        "x": 1340,
+        "y": 600,
         "wires": []
     },
     {
@@ -604,12 +565,11 @@
         "pintype": "0",
         "pin": "4",
         "x": 370,
-        "y": 560,
+        "y": 680,
         "wires": [
             [
                 "600d806816c00c20",
-                "0b7905d9f40b8a0c",
-                "fa5a3b4363874105"
+                "0b7905d9f40b8a0c"
             ]
         ]
     },
@@ -634,30 +594,13 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 170,
-        "y": 560,
+        "x": 130,
+        "y": 680,
         "wires": [
             [
                 "b4b430bc608a6453"
             ]
         ]
-    },
-    {
-        "id": "3cd385879961c2d3",
-        "type": "debug",
-        "z": "2d794f9e07d29405",
-        "name": "debug 12",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 600,
-        "y": 700,
-        "wires": []
     },
     {
         "id": "82599b533ca71c70",
@@ -683,8 +626,8 @@
         "seg2": "",
         "diff": false,
         "className": "",
-        "x": 830,
-        "y": 760,
+        "x": 850,
+        "y": 800,
         "wires": []
     },
     {
@@ -699,13 +642,13 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 600,
-        "y": 580,
+        "x": 620,
+        "y": 620,
         "wires": [
             [
-                "a206288dbdd64bab",
                 "27cf1ee5dcdbd843",
-                "5382fea44834a995"
+                "5382fea44834a995",
+                "72672bbc73954589"
             ]
         ]
     },
@@ -721,32 +664,15 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 590,
-        "y": 740,
+        "x": 610,
+        "y": 780,
         "wires": [
             [
-                "3cd385879961c2d3",
                 "82599b533ca71c70",
-                "a451c1f1d3d8cbc4"
+                "a451c1f1d3d8cbc4",
+                "f0335e77555f692a"
             ]
         ]
-    },
-    {
-        "id": "a206288dbdd64bab",
-        "type": "debug",
-        "z": "2d794f9e07d29405",
-        "name": "debug 13",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 600,
-        "y": 540,
-        "wires": []
     },
     {
         "id": "27cf1ee5dcdbd843",
@@ -786,8 +712,8 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 840,
-        "y": 540,
+        "x": 860,
+        "y": 580,
         "wires": [
             []
         ]
@@ -830,8 +756,8 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 850,
-        "y": 700,
+        "x": 870,
+        "y": 740,
         "wires": [
             []
         ]
@@ -860,104 +786,501 @@
         "seg2": "",
         "diff": false,
         "className": "",
-        "x": 840,
-        "y": 580,
+        "x": 860,
+        "y": 620,
         "wires": []
     },
     {
-        "id": "7e5a27526cad518a",
+        "id": "78aa0dfc7ab29c79",
+        "type": "ui_slider",
+        "z": "2d794f9e07d29405",
+        "name": "",
+        "label": "slider",
+        "tooltip": "",
+        "group": "d16f07700327458d",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "Home/Room1/Light",
+        "topicType": "msg",
+        "min": 0,
+        "max": "100",
+        "step": "25",
+        "className": "",
+        "x": 1010,
+        "y": 100,
+        "wires": [
+            [
+                "1749c5eaa96980d6",
+                "f1327488981ea23a",
+                "c02a1a944d7ee22a"
+            ]
+        ]
+    },
+    {
+        "id": "1749c5eaa96980d6",
+        "type": "function",
+        "z": "2d794f9e07d29405",
+        "name": "Process brightnes slider",
+        "func": "var brightnesslider = msg.payload;\nvar lightStatusRoom1;\n\nif (brightnesslider === 0) {\n    lightStatusRoom1 = \"off\";\n\n} else if (brightnesslider === 25) {\n    lightStatusRoom1 = \"twentyfive\";\n\n} else if (brightnesslider === 50) {\n    lightStatusRoom1 = \"fifty\";  \n\n} else if (brightnesslider === 75) {\n    lightStatusRoom1 = \"seventyfive\";\n\n} else if (brightnesslider === 100) {\n    lightStatusRoom1 = \"on\";\n}\n\nmsg.topic = \"Home/Room1/Light\";\nmsg.payload = lightStatusRoom1;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1250,
+        "y": 100,
+        "wires": [
+            [
+                "1630cb1ef4140b87",
+                "ed2e5c9c8f931496"
+            ]
+        ]
+    },
+    {
+        "id": "ac57fb5b8c996862",
+        "type": "ui_slider",
+        "z": "2d794f9e07d29405",
+        "name": "",
+        "label": "slider",
+        "tooltip": "",
+        "group": "9278453a351a90e2",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "Home/Room1/Fan",
+        "topicType": "msg",
+        "min": 0,
+        "max": "100",
+        "step": "25",
+        "className": "",
+        "x": 1010,
+        "y": 160,
+        "wires": [
+            [
+                "f878ede920d4bfa8",
+                "4bb11729e67d2d85",
+                "71fa0143447432c9"
+            ]
+        ]
+    },
+    {
+        "id": "f878ede920d4bfa8",
+        "type": "function",
+        "z": "2d794f9e07d29405",
+        "name": "Process Fan slider",
+        "func": "var fanslider = msg.payload;\nvar fanStatusRoom1;\n\nif (fanslider === 0) {\n    fanStatusRoom1 = \"off\";\n\n} else if (fanslider === 25) {\n    fanStatusRoom1 = \"twentyfive\";\n\n} else if (fanslider === 50) {\n    fanStatusRoom1 = \"fifty\";  \n\n} else if (fanslider === 75) {\n    fanStatusRoom1 = \"seventyfive\";\n\n} else if (fanslider === 100) {\n    fanStatusRoom1 = \"on\";\n}\n\nmsg.topic = \"Home/Room1/Fan\";\nmsg.payload = fanStatusRoom1;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1250,
+        "y": 160,
+        "wires": [
+            [
+                "0ad96791724877dd",
+                "9fe30b3990304ae3"
+            ]
+        ]
+    },
+    {
+        "id": "49ef33ec169b9263",
+        "type": "ui_slider",
+        "z": "2d794f9e07d29405",
+        "name": "",
+        "label": "slider",
+        "tooltip": "",
+        "group": "636577a91dc0d28e",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "Home/Room1/Light",
+        "topicType": "msg",
+        "min": 0,
+        "max": "100",
+        "step": "25",
+        "className": "",
+        "x": 1010,
+        "y": 360,
+        "wires": [
+            [
+                "5179d438bc921761",
+                "7dec5d15b667b816",
+                "bd5d330af11fe9c1"
+            ]
+        ]
+    },
+    {
+        "id": "5179d438bc921761",
+        "type": "function",
+        "z": "2d794f9e07d29405",
+        "name": "Process brightnes slider",
+        "func": "var brightnesslider = msg.payload;\nvar lightStatusRoom2;\n\nif (brightnesslider === 0) {\n    lightStatusRoom2 = \"off\";\n\n} else if (brightnesslider === 25) {\n    lightStatusRoom2 = \"twentyfive\";\n\n} else if (brightnesslider === 50) {\n    lightStatusRoom2 = \"fifty\";  \n\n} else if (brightnesslider === 75) {\n    lightStatusRoom2 = \"seventyfive\";\n\n} else if (brightnesslider === 100) {\n    lightStatusRoom2 = \"on\";\n}\n\nmsg.topic = \"Home/Room2/Light\";\nmsg.payload = lightStatusRoom2;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1250,
+        "y": 360,
+        "wires": [
+            [
+                "e2e4b45e93addfe8",
+                "fcfdaa9c5f801488"
+            ]
+        ]
+    },
+    {
+        "id": "f9e5dee88cdc9d0f",
+        "type": "ui_slider",
+        "z": "2d794f9e07d29405",
+        "name": "",
+        "label": "slider",
+        "tooltip": "",
+        "group": "20bd4304996f28c9",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "Home/Room1/Fan",
+        "topicType": "msg",
+        "min": 0,
+        "max": "100",
+        "step": "25",
+        "className": "",
+        "x": 1010,
+        "y": 440,
+        "wires": [
+            [
+                "d30da50926e20c63",
+                "eb48da40bceb7a08",
+                "9668672555b3d967"
+            ]
+        ]
+    },
+    {
+        "id": "d30da50926e20c63",
+        "type": "function",
+        "z": "2d794f9e07d29405",
+        "name": "Process Fan slider",
+        "func": "var fanslider = msg.payload;\nvar fanStatusRoom2;\n\nif (fanslider === 0) {\n    fanStatusRoom2 = \"off\";\n\n} else if (fanslider === 25) {\n    fanStatusRoom2 = \"twentyfive\";\n\n} else if (fanslider === 50) {\n    fanStatusRoom2 = \"fifty\";  \n\n} else if (fanslider === 75) {\n    fanStatusRoom2 = \"seventyfive\";\n\n} else if (fanslider === 100) {\n    fanStatusRoom2 = \"on\";\n}\n\nmsg.topic = \"Home/Room2/Fan\";\nmsg.payload = fanStatusRoom2;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1250,
+        "y": 440,
+        "wires": [
+            [
+                "c4d1afa920cdd57a",
+                "9e1acf4431c8db71"
+            ]
+        ]
+    },
+    {
+        "id": "f1327488981ea23a",
         "type": "debug",
         "z": "2d794f9e07d29405",
-        "name": "debug 14",
-        "active": true,
+        "name": "debug 16",
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 760,
+        "x": 1020,
         "y": 40,
         "wires": []
     },
     {
-        "id": "14465682328f59b6",
+        "id": "ed2e5c9c8f931496",
         "type": "debug",
         "z": "2d794f9e07d29405",
-        "name": "debug 15",
-        "active": true,
+        "name": "debug 17",
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 840,
+        "x": 1280,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "9fe30b3990304ae3",
+        "type": "debug",
+        "z": "2d794f9e07d29405",
+        "name": "debug 18",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1280,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "4bb11729e67d2d85",
+        "type": "debug",
+        "z": "2d794f9e07d29405",
+        "name": "debug 19",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1020,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "7dec5d15b667b816",
+        "type": "debug",
+        "z": "2d794f9e07d29405",
+        "name": "debug 20",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "fcfdaa9c5f801488",
+        "type": "debug",
+        "z": "2d794f9e07d29405",
+        "name": "debug 21",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1240,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "eb48da40bceb7a08",
+        "type": "debug",
+        "z": "2d794f9e07d29405",
+        "name": "debug 22",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "9e1acf4431c8db71",
+        "type": "debug",
+        "z": "2d794f9e07d29405",
+        "name": "debug 23",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1240,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "5f16860eb5eab57c",
+        "type": "debug",
+        "z": "2d794f9e07d29405",
+        "name": "debug 24",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "72672bbc73954589",
+        "type": "debug",
+        "z": "2d794f9e07d29405",
+        "name": "debug 25",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "f0335e77555f692a",
+        "type": "debug",
+        "z": "2d794f9e07d29405",
+        "name": "debug 26",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "cc6ea0dd28adb79d",
+        "type": "debug",
+        "z": "2d794f9e07d29405",
+        "name": "debug 27",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1080,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "0fdce4ebdb055333",
+        "type": "debug",
+        "z": "2d794f9e07d29405",
+        "name": "debug 28",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1100,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "c02a1a944d7ee22a",
+        "type": "ui_text",
+        "z": "2d794f9e07d29405",
+        "group": "d16f07700327458d",
+        "order": 2,
+        "width": "0",
+        "height": "0",
+        "name": "",
+        "label": "Brightness Percentage",
+        "format": "{{msg.payload}}%",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 1520,
         "y": 100,
         "wires": []
     },
     {
-        "id": "f4df26be384e086f",
-        "type": "debug",
+        "id": "71fa0143447432c9",
+        "type": "ui_text",
         "z": "2d794f9e07d29405",
-        "name": "debug 16",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 160,
-        "y": 400,
+        "group": "9278453a351a90e2",
+        "order": 27,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Speed Percentage",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1510,
+        "y": 160,
         "wires": []
     },
     {
-        "id": "65ec29fa33797a07",
-        "type": "debug",
+        "id": "bd5d330af11fe9c1",
+        "type": "ui_text",
         "z": "2d794f9e07d29405",
-        "name": "debug 17",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 380,
+        "group": "636577a91dc0d28e",
+        "order": 2,
+        "width": "0",
+        "height": "0",
+        "name": "",
+        "label": "Brightness Percentage",
+        "format": "{{msg.payload}}%",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 1540,
         "y": 360,
         "wires": []
     },
     {
-        "id": "87d20c82ea61f743",
-        "type": "debug",
+        "id": "9668672555b3d967",
+        "type": "ui_text",
         "z": "2d794f9e07d29405",
-        "name": "debug 18",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 380,
-        "y": 200,
-        "wires": []
-    },
-    {
-        "id": "fa5a3b4363874105",
-        "type": "debug",
-        "z": "2d794f9e07d29405",
-        "name": "debug 19",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 340,
-        "y": 680,
+        "group": "20bd4304996f28c9",
+        "order": 27,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Speed Percentage",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1510,
+        "y": 440,
         "wires": []
     },
     {
@@ -1074,6 +1397,50 @@
         "name": "Humidity",
         "tab": "deec8db058b2a57b",
         "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "d16f07700327458d",
+        "type": "ui_group",
+        "name": "Light Slider",
+        "tab": "37b5f90d.5e1ef2",
+        "order": 5,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "9278453a351a90e2",
+        "type": "ui_group",
+        "name": "Fan Slider",
+        "tab": "37b5f90d.5e1ef2",
+        "order": 6,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "636577a91dc0d28e",
+        "type": "ui_group",
+        "name": "Light Slider",
+        "tab": "deec8db058b2a57b",
+        "order": 6,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "20bd4304996f28c9",
+        "type": "ui_group",
+        "name": "Fan Slider",
+        "tab": "deec8db058b2a57b",
+        "order": 7,
         "disp": true,
         "width": "6",
         "collapse": false,
