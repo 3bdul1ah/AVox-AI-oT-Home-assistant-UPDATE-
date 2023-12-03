@@ -2,19 +2,17 @@ import speech_recognition as sr
 import paho.mqtt.publish as publish
 import time
 
-# MQTT Configuration
 mqtt_server = "broker.emqx.io"
 mqtt_port = 1883
 mqtt_topic = "input/voice"
 
-# Voice Recognition Configuration
 recognizer = sr.Recognizer()
 
 def listen_for_command():
     with sr.Microphone() as source:
         print("Listening for command...")
         recognizer.adjust_for_ambient_noise(source)
-        audio = recognizer.listen(source, timeout=5)  # Adjust the timeout as needed
+        audio = recognizer.listen(source, timeout=5)  
 
     try:
         command = recognizer.recognize_google(audio).lower()
@@ -37,4 +35,4 @@ if __name__ == "__main__":
         if voice_command:
             publish_command(voice_command)
         
-        time.sleep(5)  # Adjust the sleep time as needed
+        time.sleep(2)  
