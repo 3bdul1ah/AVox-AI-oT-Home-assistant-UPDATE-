@@ -97,7 +97,7 @@ The script enters an infinite loop to continuously listen for voice commands. If
 3. Use MQTT nodes to publish processed commands to ESP32 MQTT topics.
 4. Raspberry Pi 4 serves as the server hosting Node-RED.
 
-![Node-RED Flow](https://eu-central.storage.cloudconvert.com/tasks/20e8386b-9e7f-4010-8b29-5f9210d74fe3/Screenshot%20from%202023-11-30%2005-13-49.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cloudconvert-production%2F20231129%2Ffra%2Fs3%2Faws4_request&X-Amz-Date=20231129T211400Z&X-Amz-Expires=86400&X-Amz-Signature=4ca1d7b7923cfcd3b04d8a8cfba87b929169c078fa86092136a74460c57be676&X-Amz-SignedHeaders=host&response-content-disposition=inline%3B%20filename%3D%22Screenshot%20from%202023-11-30%2005-13-49.webp%22&response-content-type=image%2Fwebp&x-id=GetObject)
+![Node-RED Flow](https://eu-central.storage.cloudconvert.com/tasks/29b87eef-e8df-4560-b888-cafd2bae2c9e/Screenshot%20from%202023-12-03%2010-31-44.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cloudconvert-production%2F20231203%2Ffra%2Fs3%2Faws4_request&X-Amz-Date=20231203T023220Z&X-Amz-Expires=86400&X-Amz-Signature=1e2ce3a651edae8cab2a596b48161f2f3ff803a044d275b62ac40dd1bf23a975&X-Amz-SignedHeaders=host&response-content-disposition=inline%3B%20filename%3D%22Screenshot%20from%202023-12-03%2010-31-44.webp%22&response-content-type=image%2Fwebp&x-id=GetObject)
 
 ## IoT Dashboard
 
@@ -105,6 +105,8 @@ The script enters an infinite loop to continuously listen for voice commands. If
 2. Add dashboard elements for lights and fans in each room.
 3. Implement controls and feedback mechanisms based on MQTT data.
 4. Display DHT22 sensor readings in the dashboard using appropriate dashboard nodes.
+![Dash]()
+
 
 ## Usage
 
