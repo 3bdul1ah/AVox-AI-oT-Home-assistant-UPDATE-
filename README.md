@@ -60,7 +60,7 @@ The loop function continuously checks the `MQTT client's` connection status. If 
 Install required Python packages: `pip install SpeechRecognition paho-mqtt`
 
 ### Import Libraries
-![Import Libraries](https://eu-central.storage.cloudconvert.com/tasks/01721bbb-985f-4c47-a175-c01015b9b8fd/Screenshot%20from%202023-12-03%2009-59-12.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cloudconvert-production%2F20231203%2Ffra%2Fs3%2Faws4_request&X-Amz-Date=20231203T015923Z&X-Amz-Expires=86400&X-Amz-Signature=250c9943fee1be79cea107877329df94a0c676890070b78d732d43a59539c8f3&X-Amz-SignedHeaders=host&response-content-disposition=inline%3B%20filename%3D%22Screenshot%20from%202023-12-03%2009-59-12.webp%22&response-content-type=image%2Fwebp&x-id=GetObject)
+![Import Libraries](https://eu-central.storage.cloudconvert.com/tasks/27f8f09b-943f-45b1-bad2-206e89a60363/Screenshot%20from%202023-12-03%2010-03-24.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cloudconvert-production%2F20231203%2Ffra%2Fs3%2Faws4_request&X-Amz-Date=20231203T021537Z&X-Amz-Expires=86400&X-Amz-Signature=e22520d377b6ce27d6a757ef19e7b8d44bc45634cca4fbde9ef21d7f8234d79b&X-Amz-SignedHeaders=host&response-content-disposition=inline%3B%20filename%3D%22Screenshot%20from%202023-12-03%2010-03-24.webp%22&response-content-type=image%2Fwebp&x-id=GetObject)
 
 import the necessary libraries: `speech_recognition` for voice recognition, `paho.mqtt.publish` for MQTT communication, and `time` for introducing delays.
 
