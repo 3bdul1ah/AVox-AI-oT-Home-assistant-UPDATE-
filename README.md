@@ -7,20 +7,12 @@ This project combines an ESP32-based home automation system, a voice control mod
 - ESP32
 - Arduino IDE
 - WiFi and MQTT Broker (e.g., broker.emqx.io)
+- 
+## Libraries
+![Libraries](https://eu-central.storage.cloudconvert.com/tasks/c11c9ad6-8455-4f49-bd2d-ee36e4594fa0/Screenshot%20from%202023-12-03%2009-21-36.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cloudconvert-production%2F20231203%2Ffra%2Fs3%2Faws4_request&X-Amz-Date=20231203T012250Z&X-Amz-Expires=86400&X-Amz-Signature=1dc2e61b624ad29c31f4f4116325808f617cb9c45403e2964d271702a7bbfd5d&X-Amz-SignedHeaders=host&response-content-disposition=inline%3B%20filename%3D%22Screenshot%20from%202023-12-03%2009-21-36.webp%22&response-content-type=image%2Fwebp&x-id=GetObject)
 
-### Libraries Used
-- WiFi.h
-- PubSubClient.h
-- L298N.h
+Include essential libraries for Wi-Fi connectivity `WiFi.h` , MQTT communication `PubSubClient.h`, and motor control `L298N.h`.
 
-### ESP32 Setup
-1. Connect the necessary components (lights, fans) to the ESP32.
-2. Update the WiFi credentials and MQTT broker information in the code.
-3. Flash the code to the ESP32 using the Arduino IDE.
-
-### MQTT Topics
-- Room 1: `Home/Room1`, `Home/Room1/Light`, `Home/Room1/Fan`
-- Room 2: `Home/Room2`, `Home/Room2/Light`, `Home/Room2/Fan`
 
 ### MQTT Commands
 - Light Control: "on", "twentyfive", "fifty", "seventyfive", "off"
