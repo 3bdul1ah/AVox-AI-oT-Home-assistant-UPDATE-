@@ -8,26 +8,21 @@ This project combines an ESP32-based home automation system, a voice control mod
 - Arduino IDE
 - WiFi and MQTT Broker (e.g., broker.emqx.io)
   
-## Libraries
+### Libraries
 ![Libraries](https://eu-central.storage.cloudconvert.com/tasks/c11c9ad6-8455-4f49-bd2d-ee36e4594fa0/Screenshot%20from%202023-12-03%2009-21-36.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cloudconvert-production%2F20231203%2Ffra%2Fs3%2Faws4_request&X-Amz-Date=20231203T012250Z&X-Amz-Expires=86400&X-Amz-Signature=1dc2e61b624ad29c31f4f4116325808f617cb9c45403e2964d271702a7bbfd5d&X-Amz-SignedHeaders=host&response-content-disposition=inline%3B%20filename%3D%22Screenshot%20from%202023-12-03%2009-21-36.webp%22&response-content-type=image%2Fwebp&x-id=GetObject)
 
 Include essential libraries for Wi-Fi connectivity `WiFi.h` , MQTT communication `PubSubClient.h`, and motor control `L298N.h`.
 
-## Wi-Fi and MQTT Configuration
+### Wi-Fi and MQTT Configuration
 ![Wi-Fi and MQTT Configuration](https://eu-central.storage.cloudconvert.com/tasks/1b08f335-0eb6-468f-9c00-2f3ef1f2adfc/Screenshot%20from%202023-12-03%2009-28-55.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cloudconvert-production%2F20231203%2Ffra%2Fs3%2Faws4_request&X-Amz-Date=20231203T012907Z&X-Amz-Expires=86400&X-Amz-Signature=a0642e7479b665aa3789f95a2d533e4353562a82de3fde4666e63b1663d831b8&X-Amz-SignedHeaders=host&response-content-disposition=inline%3B%20filename%3D%22Screenshot%20from%202023-12-03%2009-28-55.webp%22&response-content-type=image%2Fwebp&x-id=GetObject)
 
 sets up Wi-Fi credentials, MQTT broker information, and a unique client ID for the ESP32.
 
-## Room 1 & Room 2 Configuration
+### Room 1 & Room 2 Configuration
 ![Room 1 & Room 2 Configuration](https://eu-central.storage.cloudconvert.com/tasks/db63e844-5de4-4db5-9bbb-fb5db2fd7e98/Screenshot%20from%202023-12-03%2009-32-16.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cloudconvert-production%2F20231203%2Ffra%2Fs3%2Faws4_request&X-Amz-Date=20231203T013230Z&X-Amz-Expires=86400&X-Amz-Signature=148c6214b16ee55bda6c3f9b3ed23ab033ddd1bbc150858f1fae247e90770717&X-Amz-SignedHeaders=host&response-content-disposition=inline%3B%20filename%3D%22Screenshot%20from%202023-12-03%2009-32-16.webp%22&response-content-type=image%2Fwebp&x-id=GetObject)
 
 defines MQTT topics and pin configurations for both rooms, including light and fan control topics and corresponding pin assignments for the L298N motor driver.
 
-
-
-### MQTT Commands
-- Light Control: "on", "twentyfive", "fifty", "seventyfive", "off"
-- Fan Control: "on", "twentyfive", "fifty", "seventyfive", "off"
 
 ## Voice Control Module
 
