@@ -1,5 +1,6 @@
-![image](https://github.com/3bdul1ah/IoT-Based-Voice-Controlled-Home-Automation-Using-NodeMCU-andRaspberry-pi/assets/141893142/69158d09-c111-426a-9ca4-8d6fb52d9586)# IoT Based Voice Controlled Home Automation Using NodeMCU & Raspberry pi
+## IoT Based Voice Controlled Home Automation Using NodeMCU & Raspberry pi
 This project combines an ESP32-based home automation system, a voice control module using Python, integrates with Node-RED for additional processing and UI capabilities, and includes DHT22 sensor monitoring through a Raspberry Pi 4 server.
+
 ![Project Prototype](https://eu-central.storage.cloudconvert.com/tasks/cb408d4d-df23-465c-9d18-01673c4b2786/b0e7b067-f65e-4900-b5c8-787ba48048a8.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cloudconvert-production%2F20231129%2Ffra%2Fs3%2Faws4_request&X-Amz-Date=20231129T212016Z&X-Amz-Expires=86400&X-Amz-Signature=3385e149291f3417436314d537f3a3f13d6bcd25fe0b97b3c12c8485ddf4ed86&X-Amz-SignedHeaders=host&response-content-disposition=inline%3B%20filename%3D%22b0e7b067-f65e-4900-b5c8-787ba48048a8.webp%22&response-content-type=image%2Fwebp&x-id=GetObject)
 ## ESP32 Home Automation System
 
@@ -64,7 +65,9 @@ Install required Python packages: `pip install SpeechRecognition paho-mqtt`
 import the necessary libraries: `speech_recognition` for voice recognition, `paho.mqtt.publish` for MQTT communication, and `time` for introducing delays.
 
 ### MQTT Configuration
-![MQTT Configuration]()
+![MQTT Configuration](https://eu-central.storage.cloudconvert.com/tasks/c3c028e9-6b0d-4c47-8857-df49b6b57263/Screenshot%20from%202023-12-03%2010-06-48.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cloudconvert-production%2F20231203%2Ffra%2Fs3%2Faws4_request&X-Amz-Date=20231203T021105Z&X-Amz-Expires=86400&X-Amz-Signature=d71ecac74785644e5610d82fc573070c527294e3f7b0da1bd447404ccdeddaf1&X-Amz-SignedHeaders=host&response-content-disposition=inline%3B%20filename%3D%22Screenshot%20from%202023-12-03%2010-06-48.webp%22&response-content-type=image%2Fwebp&x-id=GetObject)
+
+sets up the configuration for the MQTT broker, including the server address, port, and the topic to which voice commands will be published.
 
 
 sets up the configuration for the MQTT broker, including the server address, port, and the topic to which voice commands will be published.
