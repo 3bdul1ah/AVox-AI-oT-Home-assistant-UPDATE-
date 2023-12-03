@@ -34,7 +34,9 @@ create instances of the `WiFiClient` and `PubSubClient` classes to handle Wi-Fi 
 This function is invoked when an MQTT message is received. It parses the topic and payload, calling the appropriate functions for light or fan control.
 
 ### Light and Fan Control Functions
-![Light and Fan Control Functions]()
+![Light and Fan Control Functions](https://eu-central.storage.cloudconvert.com/tasks/a64b844d-c746-4806-8c29-3c1b43161835/Screenshot%20from%202023-12-03%2009-45-48.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cloudconvert-production%2F20231203%2Ffra%2Fs3%2Faws4_request&X-Amz-Date=20231203T014602Z&X-Amz-Expires=86400&X-Amz-Signature=4869b5c974806a76ea5690005647f9d1c8ba65ddd9d8ecdadc375d3f7feb52b3&X-Amz-SignedHeaders=host&response-content-disposition=inline%3B%20filename%3D%22Screenshot%20from%202023-12-03%2009-45-48.webp%22&response-content-type=image%2Fwebp&x-id=GetObject)
+
+These functions handle the logic for controlling lights and fan speed based on the received MQTT payload.
 
 ## Voice Control Module
 
