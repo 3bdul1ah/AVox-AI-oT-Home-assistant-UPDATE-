@@ -14,22 +14,39 @@ This project combines an ESP32-based home automation system, a voice control mod
 #include <PubSubClient.h>
 #include <L298N.h>
 ```
-</pre>
-
 Include essential libraries for Wi-Fi connectivity `WiFi.h` , MQTT communication `PubSubClient.h`, and motor control `L298N.h`.
 
 ### Wi-Fi and MQTT Configuration
 ```cpp
+const char* ssid = "";
+const char* password = "";
+
 const char* mqttServer = "broker.emqx.io";
 const int mqttPort = 1883;
 const char* clientId = "ESP32";
 ```
-</pre>
 sets up Wi-Fi credentials, MQTT broker information, and a unique client ID for the ESP32.
 
 ### Room 1 & Room 2 Configuration
-![Room 1 & Room 2 Configuration](https://eu-central.storage.cloudconvert.com/tasks/db63e844-5de4-4db5-9bbb-fb5db2fd7e98/Screenshot%20from%202023-12-03%2009-32-16.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cloudconvert-production%2F20231203%2Ffra%2Fs3%2Faws4_request&X-Amz-Date=20231203T013230Z&X-Amz-Expires=86400&X-Amz-Signature=148c6214b16ee55bda6c3f9b3ed23ab033ddd1bbc150858f1fae247e90770717&X-Amz-SignedHeaders=host&response-content-disposition=inline%3B%20filename%3D%22Screenshot%20from%202023-12-03%2009-32-16.webp%22&response-content-type=image%2Fwebp&x-id=GetObject)
+```cpp
+const char* room1Topic = "Home/Room1";
+const char* lightTopicRoom1 = "Home/Room1/Light";
+const char* fanTopicRoom1 = "Home/Room1/Fan";
+const int lightPinRoom1 = 26;
+const int enAFanRoom1 = 13;   
+const int in1FanRoom1 = 12;   
+const int in2FanRoom1 = 14;   
+L298N fanMotorRoom1(enAFanRoom1, in1FanRoom1, in2FanRoom1);
 
+const char* room2Topic = "Home/Room2";
+const char* lightTopicRoom2 = "Home/Room2/Light";
+const char* fanTopicRoom2 = "Home/Room2/Fan";
+const int lightPinRoom2 = 33;  
+const int enAFanRoom2 = 15;    
+const int in1FanRoom2 = 2;    
+const int in2FanRoom2 = 4;    
+L298N fanMotorRoom2(enAFanRoom2, in1FanRoom2, in2FanRoom2);
+```
 defines MQTT topics and pin configurations for both rooms, including light and fan control topics and corresponding pin assignments for the L298N motor driver.
 
 ### Objects Initialization
