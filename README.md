@@ -2,7 +2,7 @@
 This project combines an ESP32-based home automation system, a voice control module using Python, integrates with Node-RED for additional processing and UI capabilities, and includes DHT22 sensor monitoring through a Raspberry Pi 4 server.
 
 <p align="center">
-    <img src="https://i.postimg.cc/PqJjHmDp/894fdfc8-4714-4fd8-b8aa-6271c29ae1e1.jpg">
+    <img src="https://i.postimg.cc/KzcgxpN7/image.png">
 </p>
 
 ## ESP32 Home Automation System
@@ -277,8 +277,9 @@ The script enters an infinite loop to continuously listen for voice commands. If
 3. Use MQTT nodes to publish processed commands to ESP32 MQTT topics.
 4. Raspberry Pi 4 serves as the server hosting Node-RED.
 
-![Node-RED Flow](https://eu-central.storage.cloudconvert.com/tasks/29b87eef-e8df-4560-b888-cafd2bae2c9e/Screenshot%20from%202023-12-03%2010-31-44.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cloudconvert-production%2F20231203%2Ffra%2Fs3%2Faws4_request&X-Amz-Date=20231203T023220Z&X-Amz-Expires=86400&X-Amz-Signature=1e2ce3a651edae8cab2a596b48161f2f3ff803a044d275b62ac40dd1bf23a975&X-Amz-SignedHeaders=host&response-content-disposition=inline%3B%20filename%3D%22Screenshot%20from%202023-12-03%2010-31-44.webp%22&response-content-type=image%2Fwebp&x-id=GetObject)
-
+<p align="center">
+    <img src="https://i.postimg.cc/PqJjHmDp/894fdfc8-4714-4fd8-b8aa-6271c29ae1e1.jpg">
+</p>
 ## IoT Dashboard
 
 1. Create a UI in Node-RED for monitoring and controlling the home automation system.
