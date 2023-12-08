@@ -9,14 +9,13 @@ This project combines an ESP32-based home automation system, a voice control mod
 - Arduino IDE
     
 ### Libraries
-<pre>
-```
+```cpp
 #include <WiFi.h>
 #include <PubSubClient.h>
 #include <L298N.h>
-
 ```
 </pre>
+
 Include essential libraries for Wi-Fi connectivity `WiFi.h` , MQTT communication `PubSubClient.h`, and motor control `L298N.h`.
 
 ### Wi-Fi and MQTT Configuration
