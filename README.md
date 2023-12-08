@@ -210,27 +210,59 @@ import time
 import the necessary libraries: `speech_recognition` for voice recognition, `paho.mqtt.publish` for MQTT communication, and `time` for introducing delays.
 
 ### MQTT Configuration
-![MQTT Configuration](https://eu-central.storage.cloudconvert.com/tasks/c3c028e9-6b0d-4c47-8857-df49b6b57263/Screenshot%20from%202023-12-03%2010-06-48.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cloudconvert-production%2F20231203%2Ffra%2Fs3%2Faws4_request&X-Amz-Date=20231203T021105Z&X-Amz-Expires=86400&X-Amz-Signature=d71ecac74785644e5610d82fc573070c527294e3f7b0da1bd447404ccdeddaf1&X-Amz-SignedHeaders=host&response-content-disposition=inline%3B%20filename%3D%22Screenshot%20from%202023-12-03%2010-06-48.webp%22&response-content-type=image%2Fwebp&x-id=GetObject)
-
+```py
+mqtt_server = "broker.emqx.io"
+mqtt_port = 1883
+mqtt_topic = "input/voice"
+```
 sets up the configuration for the MQTT broker, including the server address, port, and the topic to which voice commands will be published.
 
 ### Initialize Speech Recognition Module
-![Initialize Speech Recognition Module](https://eu-central.storage.cloudconvert.com/tasks/8c8bb79b-dabd-4980-9f18-d2e0d78dfec0/Screenshot%20from%202023-12-03%2010-17-33.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cloudconvert-production%2F20231203%2Ffra%2Fs3%2Faws4_request&X-Amz-Date=20231203T022259Z&X-Amz-Expires=86400&X-Amz-Signature=4a6ca1c482a8b85d8729edacf591a52fe4248854298fce146d0d1a5a0333583a&X-Amz-SignedHeaders=host&response-content-disposition=inline%3B%20filename%3D%22Screenshot%20from%202023-12-03%2010-17-33.webp%22&response-content-type=image%2Fwebp&x-id=GetObject)
-
+```py
+recognizer = sr.Recognizer()
+```
 creates an instance of the `recognizer` class from the `speech_recognition` library to manage speech recognition.
 
 ### Listen For Command Function 
-![Listen For Command Function ](https://eu-central.storage.cloudconvert.com/tasks/6bb2eab5-0826-4eb2-838a-8b2209ec387f/Screenshot%20from%202023-12-03%2010-20-52.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cloudconvert-production%2F20231203%2Ffra%2Fs3%2Faws4_request&X-Amz-Date=20231203T022101Z&X-Amz-Expires=86400&X-Amz-Signature=40611933b94777d4b95af0b14d71c6fdab594e7e0359c8ee69e74452475a06bd&X-Amz-SignedHeaders=host&response-content-disposition=inline%3B%20filename%3D%22Screenshot%20from%202023-12-03%2010-20-52.webp%22&response-content-type=image%2Fwebp&x-id=GetObject)
+```py
+def listen_for_command():
+    with sr.Microphone() as source:
+        print("Listening for command...")
+        recognizer.adjust_for_ambient_noise(source)
+        audio = recognizer.listen(source, timeout=5)  
 
+    try:
+        command = recognizer.recognize_google(audio).lower()
+        print(f"Command received: {command}")
+        return command
+    except sr.UnknownValueError:
+        print("Could not understand audio.")
+        return None
+    except sr.RequestError as e:
+        print(f"Error with the speech recognition service; {e}")
+        return None
+```
 This function captures audio from the microphone, adjusts for ambient noise, and uses Google Speech Recognition to convert the audio to text. It returns the recognized `command` or `None` if there's an issue.
 
 ### Publish Command Function
-![Publish Command Function](https://eu-central.storage.cloudconvert.com/tasks/034e564e-6284-4a15-a098-22e2f959a3fa/Screenshot%20from%202023-12-03%2010-26-25.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cloudconvert-production%2F20231203%2Ffra%2Fs3%2Faws4_request&X-Amz-Date=20231203T022651Z&X-Amz-Expires=86400&X-Amz-Signature=384480a7e22e45f6fce06b5d5c7ec0e0c9c7895559f97e4326b2690e19e4ff07&X-Amz-SignedHeaders=host&response-content-disposition=inline%3B%20filename%3D%22Screenshot%20from%202023-12-03%2010-26-25.webp%22&response-content-type=image%2Fwebp&x-id=GetObject)
+```py
+def publish_command(command):
+    publish.single(mqtt_topic, payload=command, hostname=mqtt_server, port=mqtt_port)
+```
 
 This function publishes the recognized command to `input/voice` MQTT topic in Node-RED using the `publish.single` function.
 
 ### Main Execution
-![Main Execution](https://eu-central.storage.cloudconvert.com/tasks/7e3a0a11-ba65-4c38-84a7-ef28f2afd45f/Screenshot%20from%202023-12-03%2010-29-17.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cloudconvert-production%2F20231203%2Ffra%2Fs3%2Faws4_request&X-Amz-Date=20231203T022927Z&X-Amz-Expires=86400&X-Amz-Signature=0e18cdb505259f6c1778aa51ccb4728a62c3390667bf192d27443ecf338bb67a&X-Amz-SignedHeaders=host&response-content-disposition=inline%3B%20filename%3D%22Screenshot%20from%202023-12-03%2010-29-17.webp%22&response-content-type=image%2Fwebp&x-id=GetObject)
+```py
+if __name__ == "__main__":
+    while True:
+        voice_command = listen_for_command()
+
+        if voice_command:
+            publish_command(voice_command)
+        
+        time.sleep(2) 
+```
 
 The script enters an infinite loop to continuously listen for voice commands. If a command is recognized, it is published to the MQTT broker. A 2-second delay is added between iterations.
 
