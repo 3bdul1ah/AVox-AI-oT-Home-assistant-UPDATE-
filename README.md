@@ -5,11 +5,17 @@ This project combines an ESP32-based home automation system, a voice control mod
 <p align="center">
     <img src="https://i.postimg.cc/WbZwFYBm/image.png">
 </p>
+The system architecture flowchart outlines the ESP32 setup, MQTT communication, and control functions for light and fan. Simultaneously, a Python Voice Control Module listens for voice commands, and Node-RED integrates voice commands into the ESP32 system, presenting an IoT dashboard for monitoring.
+
 
 ## Prototype
 <p align="center">
-    <img src="https://i.postimg.cc/Pxh5yJJr/image.png">
+    <img src="https://i.postimg.cc/Pxh5yJJr/image.png" alt="Image 1" width="40%" style="margin: 10px;">
+    <img src="https://i.postimg.cc/KzcgxpN7/image.png" alt="Image 2" width="40%" style="margin: 10px;">
 </p>
+
+The prototype encompasses the wiring of lights and DC motors (serving as fans) for two rooms, with a motor driver efficiently handling two DC motors concurrently. Additionally, an IoT dashboard is integrated to facilitate control over the on/off functionality and adjust the brightness of lights and speed of fans in both rooms.
+
 
 ## ESP32 Home Automation System
 
