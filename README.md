@@ -19,8 +19,13 @@ This project combines an ESP32-based home automation system, a voice control mod
 Include essential libraries for Wi-Fi connectivity `WiFi.h` , MQTT communication `PubSubClient.h`, and motor control `L298N.h`.
 
 ### Wi-Fi and MQTT Configuration
-![Wi-Fi and MQTT Configuration](https://eu-central.storage.cloudconvert.com/tasks/1b08f335-0eb6-468f-9c00-2f3ef1f2adfc/Screenshot%20from%202023-12-03%2009-28-55.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cloudconvert-production%2F20231203%2Ffra%2Fs3%2Faws4_request&X-Amz-Date=20231203T012907Z&X-Amz-Expires=86400&X-Amz-Signature=a0642e7479b665aa3789f95a2d533e4353562a82de3fde4666e63b1663d831b8&X-Amz-SignedHeaders=host&response-content-disposition=inline%3B%20filename%3D%22Screenshot%20from%202023-12-03%2009-28-55.webp%22&response-content-type=image%2Fwebp&x-id=GetObject)
-
+<pre>
+```cpp
+const char* mqttServer = "broker.emqx.io";
+const int mqttPort = 1883;
+const char* clientId = "ESP32";
+```
+</pre>
 sets up Wi-Fi credentials, MQTT broker information, and a unique client ID for the ESP32.
 
 ### Room 1 & Room 2 Configuration
