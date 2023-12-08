@@ -286,6 +286,7 @@ The script enters an infinite loop to continuously listen for voice commands. If
 <p align="center">
     <img src="https://i.postimg.cc/PqJjHmDp/894fdfc8-4714-4fd8-b8aa-6271c29ae1e1.jpg">
 </p>
+
 ## IoT Dashboard
 
 1. Create a UI in Node-RED for monitoring and controlling the home automation system.
