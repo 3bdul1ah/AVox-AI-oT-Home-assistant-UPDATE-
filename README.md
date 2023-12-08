@@ -6,6 +6,11 @@ This project combines an ESP32-based home automation system, a voice control mod
     <img src="https://i.postimg.cc/WbZwFYBm/image.png">
 </p>
 
+## Prototype
+<p align="center">
+    <img src="https://i.postimg.cc/Pxh5yJJr/image.png">
+</p>
+
 ## ESP32 Home Automation System
 
 ### Requirements
