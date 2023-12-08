@@ -1,6 +1,14 @@
 ## IoT Based Voice Controlled Home Automation Using NodeMCU & Raspberry pi
 This project combines an ESP32-based home automation system, a voice control module using Python, integrates with Node-RED for additional processing and UI capabilities, and includes DHT22 sensor monitoring through a Raspberry Pi 4 server.
 
+## Table of Contents
+- [System Architecture](#sa)
+- [Prototype](#pr)
+- [ESP32 Home Automation System](#ehas)
+- [Node-RED Integration](#nri)
+- [Usage](#us)
+
+
 ## System Architecture 
 <p align="center">
     <img src="https://i.postimg.cc/WbZwFYBm/image.png">
@@ -10,12 +18,10 @@ The system architecture flowchart outlines the ESP32 setup, MQTT communication, 
 
 ## Prototype
 <p align="center">
-    <img src="https://i.postimg.cc/qq2s6zNc/image.png" alt="Image 1" width="40%" style="margin: 10px;">
-    <img src="https://i.postimg.cc/KzcgxpN7/image.png" alt="Image 2" width="40%" style="margin: 10px;">
+    <img src="https://i.postimg.cc/qq2s6zNc/image.png">
 </p>
 
-The prototype encompasses the wiring of lights and DC motors (serving as fans) for two rooms, with a motor driver efficiently handling two DC motors concurrently. Additionally, an IoT dashboard is integrated to facilitate control over the on/off functionality and adjust the brightness of lights and speed of fans in both rooms.
-
+The prototype involves wiring lights and DC motors (acting as fans) for two rooms, utilizing a motor driver to control fan speed. Each component represents a room, and the motor driver manages two DC motors simultaneously.
 
 ## ESP32 Home Automation System
 
@@ -293,7 +299,7 @@ The script enters an infinite loop to continuously listen for voice commands. If
     <img src="https://i.postimg.cc/PqJjHmDp/894fdfc8-4714-4fd8-b8aa-6271c29ae1e1.jpg">
 </p>
 
-## IoT Dashboard
+### IoT Dashboard
 
 1. Create a UI in Node-RED for monitoring and controlling the home automation system.
 2. Add dashboard elements for lights and fans in each room.
