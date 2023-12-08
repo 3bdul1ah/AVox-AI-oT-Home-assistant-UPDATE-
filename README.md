@@ -70,6 +70,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
     
     handleFanControl(payloadStr, fanMotorRoom1);
   } else if (String(topic) == lightTopicRoom2) {
+
     handleLightControl(payloadStr, lightPinRoom2);
   } else if (String(topic) == fanTopicRoom2) {
     handleFanControl(payloadStr, fanMotorRoom2);
