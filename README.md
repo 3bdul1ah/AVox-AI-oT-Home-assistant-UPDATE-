@@ -2,7 +2,7 @@
 This project combines an ESP32-based home automation system, a voice control module using Python, integrates with Node-RED for additional processing and UI capabilities, and includes DHT22 sensor monitoring through a Raspberry Pi 4 server.
 
 <p align="center">
-    <img src="[https://i.ytimg.com/vi/ZeLg5rxLGLg/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDMiHxm_6Tdby6DNjyr-vZRRLZ8lQ](https://i.postimg.cc/PqJjHmDp/894fdfc8-4714-4fd8-b8aa-6271c29ae1e1.jpg)">
+    <img src="https://i.ytimg.com/vi/ZeLg5rxLGLg/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDMiHxm_6Tdby6DNjyr-vZRRLZ8lQ](https://i.postimg.cc/PqJjHmDp/894fdfc8-4714-4fd8-b8aa-6271c29ae1e1.jpg">
 </p>
 
 ## ESP32 Home Automation System
