@@ -50,28 +50,142 @@ L298N fanMotorRoom2(enAFanRoom2, in1FanRoom2, in2FanRoom2);
 defines MQTT topics and pin configurations for both rooms, including light and fan control topics and corresponding pin assignments for the L298N motor driver.
 
 ### Objects Initialization
-![Objects Initialization](https://eu-central.storage.cloudconvert.com/tasks/9a9603b0-788e-4bf4-8b95-4336df5b0571/Screenshot%20from%202023-12-03%2009-36-34.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cloudconvert-production%2F20231203%2Ffra%2Fs3%2Faws4_request&X-Amz-Date=20231203T013717Z&X-Amz-Expires=86400&X-Amz-Signature=df6639def8f979465c627e00e89c4096546f8bfa6913f50a0ded54f07f85c039&X-Amz-SignedHeaders=host&response-content-disposition=inline%3B%20filename%3D%22Screenshot%20from%202023-12-03%2009-36-34.webp%22&response-content-type=image%2Fwebp&x-id=GetObject)
-
+```cpp
+WiFiClient espClient;
+PubSubClient client(espClient);
+```
 create instances of the `WiFiClient` and `PubSubClient` classes to handle Wi-Fi and MQTT communication, respectively.
 
 ### Callback Function
-![Callback Function](https://eu-central.storage.cloudconvert.com/tasks/6bd69c58-42c5-4eb2-93fc-faea591c42a5/Screenshot%20from%202023-12-03%2009-44-39.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cloudconvert-production%2F20231203%2Ffra%2Fs3%2Faws4_request&X-Amz-Date=20231203T014450Z&X-Amz-Expires=86400&X-Amz-Signature=7ca03217259731901948c4991332d73371d54c5851c4347c9fb7d299fcc2d5a2&X-Amz-SignedHeaders=host&response-content-disposition=inline%3B%20filename%3D%22Screenshot%20from%202023-12-03%2009-44-39.webp%22&response-content-type=image%2Fwebp&x-id=GetObject)
+```cpp
+void callback(char* topic, byte* payload, unsigned int length) {
+  String payloadStr = "";
+  for (int i = 0; i < length; i++) {
+    payloadStr += (char)payload[i];
+  }
 
+  if (String(topic) == lightTopicRoom1) {
+    handleLightControl(payloadStr, lightPinRoom1);
+  } else if (String(topic) == fanTopicRoom1) {
+    
+    handleFanControl(payloadStr, fanMotorRoom1);
+  } else if (String(topic) == lightTopicRoom2) {
+    handleLightControl(payloadStr, lightPinRoom2);
+  } else if (String(topic) == fanTopicRoom2) {
+    handleFanControl(payloadStr, fanMotorRoom2);
+  }
+}
+```
 This function is invoked when an MQTT message is received. It parses the topic and payload, calling the appropriate functions for light or fan control.
 
 ### Light and Fan Control Functions
-![Light and Fan Control Functions](https://eu-central.storage.cloudconvert.com/tasks/a64b844d-c746-4806-8c29-3c1b43161835/Screenshot%20from%202023-12-03%2009-45-48.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cloudconvert-production%2F20231203%2Ffra%2Fs3%2Faws4_request&X-Amz-Date=20231203T014602Z&X-Amz-Expires=86400&X-Amz-Signature=4869b5c974806a76ea5690005647f9d1c8ba65ddd9d8ecdadc375d3f7feb52b3&X-Amz-SignedHeaders=host&response-content-disposition=inline%3B%20filename%3D%22Screenshot%20from%202023-12-03%2009-45-48.webp%22&response-content-type=image%2Fwebp&x-id=GetObject)
+```cpp
+oid handleLightControl(String payload, int lightPin) {
 
+  if (payload.equals("on")) {
+    analogWrite(lightPin, 255);
+
+  }  else if (payload.equals("twentyfive")) {
+    analogWrite(lightPin, 64);
+
+  } else if (payload.equals("fifty")) {
+    analogWrite(lightPin, 128); 
+
+  } else if (payload.equals("seventyfive")) {
+    analogWrite(lightPin, 192);
+  
+  } else if (payload.equals("off")) {
+    analogWrite(lightPin, 0);
+  
+
+  }
+}
+
+
+void handleFanControl(String payload, L298N& fanMotor) {
+
+  if (payload.equals("on")) {
+    fanMotor.setSpeed(255); 
+    fanMotor.forward();
+
+  } else if (payload.equals("twentyfive")) {
+    fanMotor.setSpeed(64); 
+    fanMotor.forward();
+
+  } else if (payload.equals("fifty")) {
+    fanMotor.setSpeed(128); 
+    fanMotor.forward();
+
+  } else if (payload.equals("seventyfive")) {
+    fanMotor.setSpeed(192); 
+    fanMotor.forward();
+  
+  } else if (payload.equals("off")) {
+    fanMotor.stop();
+  }
+}
+
+```
 These functions handle the logic for controlling lights and fan speed based on the received MQTT payload.
 
 ### Setup Function
-![Setup Function](https://eu-central.storage.cloudconvert.com/tasks/51690f43-30c7-419c-8bd0-9c2eee29ec1b/Screenshot%20from%202023-12-03%2009-57-18.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cloudconvert-production%2F20231203%2Ffra%2Fs3%2Faws4_request&X-Amz-Date=20231203T021451Z&X-Amz-Expires=86400&X-Amz-Signature=b5a5bbb0d98714830ec0120847ae9088a77bbf2bc05acae3342ba203e59ecaf1&X-Amz-SignedHeaders=host&response-content-disposition=inline%3B%20filename%3D%22Screenshot%20from%202023-12-03%2009-57-18.webp%22&response-content-type=image%2Fwebp&x-id=GetObject)
+```cpp
+void setup() {
+  pinMode(lightPinRoom1, OUTPUT);
+  pinMode(lightPinRoom2, OUTPUT);
 
+  Serial.begin(115200);
+
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(1000);
+    Serial.println("Trying to connect to WiFi...");
+  }
+  Serial.println("Successfully connected to WiFi");
+
+  client.setServer(mqttServer, mqttPort);
+  client.setCallback(callback);
+
+  while (!client.connected()) {
+    Serial.println("Attempting to connect to MQTT Broker...");
+    if (client.connect(clientId)) {
+      Serial.println("Connected to MQTT Broker");
+      client.subscribe(lightTopicRoom1);
+      client.subscribe(fanTopicRoom1);
+      client.subscribe(lightTopicRoom2);
+      client.subscribe(fanTopicRoom2);
+    } else {
+      Serial.println("Failed to connect to MQTT Broker, trying again in 5 seconds...");
+      delay(5000);
+    }
+  }
+}
+
+```
 The setup function establishes serial communication for debugging, connects to the `Wi-Fi` network, configures the `MQTT client` with the broker's details, and subscribes to relevant topics. It includes mechanisms for retrying connection to both Wi-Fi and MQTT in case of failures.
 
 ### Loop Function
-![Loop Function](https://eu-central.storage.cloudconvert.com/tasks/7737e0c8-d354-47b4-8f6f-55a466c26319/Screenshot%20from%202023-12-03%2009-59-12.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cloudconvert-production%2F20231203%2Ffra%2Fs3%2Faws4_request&X-Amz-Date=20231203T021409Z&X-Amz-Expires=86400&X-Amz-Signature=89e1a0e3f8180bad47456eb841844916be3355defb44f406cb76c03f63652ab0&X-Amz-SignedHeaders=host&response-content-disposition=inline%3B%20filename%3D%22Screenshot%20from%202023-12-03%2009-59-12.webp%22&response-content-type=image%2Fwebp&x-id=GetObject)
-
+```cpp
+void loop() {
+  if (!client.connected()) {
+    Serial.println("Connection lost. Attempting to reconnect...");
+    while (!client.connected()) {
+      Serial.println("Attempting MQTT reconnection...");
+      if (client.connect(clientId)) {
+        Serial.println("Reconnected to MQTT Broker");
+        client.subscribe(lightTopicRoom1);
+        client.subscribe(fanTopicRoom1);
+        client.subscribe(lightTopicRoom2);
+        client.subscribe(fanTopicRoom2);
+      } else {
+        Serial.println("Failed to reconnect to MQTT Broker, trying again in 5 seconds...");
+        delay(5000);
+      }
+    }
+  }
+  client.loop();
+}
+```
 The loop function continuously checks the `MQTT client's` connection status. If a disconnection is detected, it attempts to reconnect to the MQTT broker, subscribing to topics upon success. The loop also calls `client.loop()` to maintain the MQTT connection and handle incoming messages.
 
 
