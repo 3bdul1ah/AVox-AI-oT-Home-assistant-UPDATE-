@@ -19,7 +19,6 @@ This project combines an ESP32-based home automation system, a voice control mod
 Include essential libraries for Wi-Fi connectivity `WiFi.h` , MQTT communication `PubSubClient.h`, and motor control `L298N.h`.
 
 ### Wi-Fi and MQTT Configuration
-<pre>
 ```cpp
 const char* mqttServer = "broker.emqx.io";
 const int mqttPort = 1883;
