@@ -10,7 +10,7 @@ The system architecture flowchart outlines the ESP32 setup, MQTT communication, 
 
 ## Prototype
 <p align="center">
-    <img src="https://i.postimg.cc/Pxh5yJJr/image.png" alt="Image 1" width="40%" style="margin: 10px;">
+    <img src="https://i.postimg.cc/qq2s6zNc/image.png" alt="Image 1" width="40%" style="margin: 10px;">
     <img src="https://i.postimg.cc/KzcgxpN7/image.png" alt="Image 2" width="40%" style="margin: 10px;">
 </p>
 
