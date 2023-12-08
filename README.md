@@ -202,8 +202,11 @@ The loop function continuously checks the `MQTT client's` connection status. If 
 Install required Python packages: `pip install SpeechRecognition paho-mqtt`
 
 ### Import Libraries
-![Import Libraries](https://eu-central.storage.cloudconvert.com/tasks/27f8f09b-943f-45b1-bad2-206e89a60363/Screenshot%20from%202023-12-03%2010-03-24.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cloudconvert-production%2F20231203%2Ffra%2Fs3%2Faws4_request&X-Amz-Date=20231203T021537Z&X-Amz-Expires=86400&X-Amz-Signature=e22520d377b6ce27d6a757ef19e7b8d44bc45634cca4fbde9ef21d7f8234d79b&X-Amz-SignedHeaders=host&response-content-disposition=inline%3B%20filename%3D%22Screenshot%20from%202023-12-03%2010-03-24.webp%22&response-content-type=image%2Fwebp&x-id=GetObject)
-
+```py
+import speech_recognition as sr
+import paho.mqtt.publish as publish
+import time
+```
 import the necessary libraries: `speech_recognition` for voice recognition, `paho.mqtt.publish` for MQTT communication, and `time` for introducing delays.
 
 ### MQTT Configuration
