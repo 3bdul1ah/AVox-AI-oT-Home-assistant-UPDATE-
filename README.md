@@ -286,8 +286,10 @@ The script enters an infinite loop to continuously listen for voice commands. If
 2. Add dashboard elements for lights and fans in each room.
 3. Implement controls and feedback mechanisms based on MQTT data.
 4. Display DHT22 sensor readings in the dashboard using appropriate dashboard nodes.
-![Dash]()
 
+<p align="center">
+    <img src="https://i.postimg.cc/KzcgxpN7/image.png">
+</p>
 
 ## Usage
 
