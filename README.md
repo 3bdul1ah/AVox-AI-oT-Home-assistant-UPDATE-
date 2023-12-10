@@ -5,8 +5,28 @@ This project combines an ESP32-based home automation system, a voice control mod
 - [System Architecture](#system-architecture)
 - [Prototype](#prototype)
 - [ESP32 Home Automation System](#esp32-home-automation-system)
+  - [Requirements](#requirements)
+  - [Libraries](#libraries)
+  - [Wi-Fi and MQTT Configuration](#wi-fi-and-mqtt-configuration)
+  - [Room 1 & Room 2 Configuration](#room-1--room-2-configuration)
+  - [Objects Initialization](#objects-initialization)
+  - [Callback Function](#callback-function)
+  - [Light and Fan Control Functions](#light-and-fan-control-functions)
+  - [Setup Function](#setup-function)
+  - [Loop Function](#loop-function)
+- [Voice Control Module](#voice-control-module)
+  - [Requirements](#requirements-1)
+  - [Setup](#setup)
+  - [Import Libraries](#import-libraries)
+  - [MQTT Configuration](#mqtt-configuration)
+  - [Initialize Speech Recognition Module](#initialize-speech-recognition-module)
+  - [Listen For Command Function](#listen-for-command-function)
+  - [Publish Command Function](#publish-command-function)
+  - [Main Execution](#main-execution)
 - [Node-RED Integration](#node-red-integration)
+- [IoT Dashboard](#iot-dashboard)
 - [Usage](#usage)
+
 
 
 ## System Architecture 
