@@ -1,0 +1,6 @@
+faster_whisper==1.0.1
+gTTS==2.5.1
+playsound==1.2.2
+protobuf
+PyAudio==0.2.14
+google-generativeai
