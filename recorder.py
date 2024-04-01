@@ -1,19 +1,31 @@
 import pyaudioop as audioop 
-# from faster_whisper import WhisperModel
+from faster_whisper import WhisperModel
 import pyaudio
 import wave
 import os
 import speech_recognition as sr
 
-# model_size = "tiny"
-# whisper_model =  WhisperModel(model_size, device="cpu", compute_type="int8")
-# ambient_detected = False
-speech_volume = 9980
+from dotenv import load_dotenv
+
+from deepgram import (
+    DeepgramClient,
+    PrerecordedOptions,
+    FileSource,
+)
+
+load_dotenv()
+
+API_KEY = "abc5087ea25687bbe6dc634a4316644885aa473f"
+
+model_size = "tiny"
+whisper_model =  WhisperModel(model_size, device="cpu", compute_type="int8")
+ambient_detected = False
+speech_volume = 700
 
 
 r = sr.Recognizer()
 
-def live_speech(woken_up, wait_time=10):
+def live_speech(woken_up = [False], wait_time=30):
     global ambient_detected
     global speech_volume
     audio = pyaudio.PyAudio()
@@ -22,7 +34,6 @@ def live_speech(woken_up, wait_time=10):
     RATE = 16000
     CHUNK = 1024
 
-    
 
     # info = audio.get_host_api_info_by_index(0)
     # numdevices = info.get('deviceCount')
@@ -50,7 +61,7 @@ def live_speech(woken_up, wait_time=10):
         frames_recorded += 1
         data = stream.read(CHUNK)
         rms = audioop.rms(data, 2)
-     #  print(rms)
+        # print(rms)
 
         # if not ambient_detected:
         #     if frames_recorded < 10:
@@ -90,17 +101,45 @@ def live_speech(woken_up, wait_time=10):
             wf.writeframes(b''.join(frames))
             wf.close()
             
-            try:
-                audiofile = sr.AudioFile("audio.wav")
-                with audiofile as source:
-                        # r.adjust_for_ambient_noise(source)
-                        audio_rec = r.record(source)
-                result = r.recognize_google(audio_rec)
-            except sr.UnknownValueError:
-                result = ""
+            # try:
+            #     audiofile = sr.AudioFile("audio.wav")
+            #     with audiofile as source:
+            #             # r.adjust_for_ambient_noise(source)
+            #             audio_rec = r.record(source)
+            #     result = r.recognize_google(audio_rec)
+            # except sr.UnknownValueError:
+            #     result = ""
 
-            # result, _ = whisper_model.transcribe("audio.wav")
-            #result = list(result)
+            # try:
+            # # STEP 1 Create a Deepgram client using the API key
+            #     deepgram = DeepgramClient(API_KEY)
+
+            #     with open("audio.wav", "rb") as file:
+            #         buffer_data = file.read()
+
+            #         payload: FileSource = {
+            #             "buffer": buffer_data,
+            #         }
+
+            #         #STEP 2: Configure Deepgram options for audio analysis
+            #         options = PrerecordedOptions(
+            #             model="nova-2",
+            #             smart_format=True,
+            #         )
+
+            #         # STEP 3: Call the transcribe_file method with the text payload and options
+            #         response = deepgram.listen.prerecorded.v("1").transcribe_file(payload, options)
+
+            #         # STEP 4: Print the response
+            #         # print(response["results"]["channels"][0]["alternatives"][0]["transcript"])
+            #         result = response["results"]["channels"][0]["alternatives"][0]["transcript"]
+            #         # print(result)
+
+            # except Exception as e:
+            #     print(f"Exception: {e}")
+
+            result, _ = whisper_model.transcribe("audio.wav")
+            result = list(result)
             # result = result.split(" ")
             # 
 
@@ -112,8 +151,8 @@ def live_speech(woken_up, wait_time=10):
             os.remove("audio.wav")
             frames = []
             if(len(result) > 0):
-                # yield result[0].text.strip()
-                yield result
+                yield result[0].text.strip()
+                # yield result
             else:
                 yield ""
 
@@ -121,4 +160,3 @@ def live_speech(woken_up, wait_time=10):
 
         if recording:
             frames.append(data)
-
