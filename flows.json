@@ -22,12 +22,10 @@
         },
         "nodes": [
             "2073b8ecaa09ddb2",
-            "edf86b0743932e3e",
             "12743f6aaa61d56b",
             "619235101e9bd1d5",
             "57a580ca980d413f",
             "1ee2ea63ef786dbd",
-            "61d23088d2d3df71",
             "0abc7489901a61f7",
             "48f0010490906bbc",
             "3756db758fd848c8",
@@ -38,11 +36,12 @@
             "d5986b805429e7aa",
             "e008bd007dc00572",
             "e628381febfda6b4",
-            "31fed6ed466248f7"
+            "31fed6ed466248f7",
+            "457403229d6397db"
         ],
         "x": 54,
         "y": 659,
-        "w": 1452,
+        "w": 1432,
         "h": 342
     },
     {
@@ -118,7 +117,7 @@
             "440df9bcf9402798"
         ],
         "x": 234,
-        "y": 1039,
+        "y": 1059,
         "w": 732,
         "h": 102
     },
@@ -899,34 +898,6 @@
         "wires": []
     },
     {
-        "id": "edf86b0743932e3e",
-        "type": "inject",
-        "z": "2d794f9e07d29405",
-        "g": "d3454d6a5e177906",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "5",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 710,
-        "y": 820,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "12743f6aaa61d56b",
         "type": "ui_gauge",
         "z": "2d794f9e07d29405",
@@ -991,13 +962,13 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1130,
+        "x": 1150,
         "y": 920,
         "wires": [
             [
                 "12743f6aaa61d56b",
-                "61d23088d2d3df71",
-                "e628381febfda6b4"
+                "e628381febfda6b4",
+                "aede79e9efb84a65"
             ]
         ]
     },
@@ -1042,51 +1013,6 @@
         "className": "",
         "x": 1380,
         "y": 700,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "61d23088d2d3df71",
-        "type": "ui_chart",
-        "z": "2d794f9e07d29405",
-        "g": "d3454d6a5e177906",
-        "name": "",
-        "group": "539c291ba1ff720f",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "label": "Temperature Chart",
-        "chartType": "line",
-        "legend": "false",
-        "xformat": "HH:mm:ss",
-        "interpolate": "step",
-        "nodata": "",
-        "dot": false,
-        "ymin": "0",
-        "ymax": "50",
-        "removeOlder": 1,
-        "removeOlderPoints": "",
-        "removeOlderUnit": "1",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#1f77b4",
-            "#aec7e8",
-            "#ff7f0e",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "className": "",
-        "x": 1390,
-        "y": 880,
         "wires": [
             []
         ]
@@ -1145,7 +1071,9 @@
         "x": 170,
         "y": 820,
         "wires": [
-            []
+            [
+                "457403229d6397db"
+            ]
         ]
     },
     {
@@ -1426,7 +1354,7 @@
         "expiry": "",
         "broker": "d6670896eb4c043f",
         "x": 870,
-        "y": 1080,
+        "y": 1100,
         "wires": []
     },
     {
@@ -1443,7 +1371,7 @@
         "finalize": "",
         "libs": [],
         "x": 590,
-        "y": 1100,
+        "y": 1120,
         "wires": [
             [
                 "da606248f0eb9398"
@@ -1478,7 +1406,7 @@
         "animate": false,
         "className": "/* Style for all switch widgets / .ui-switch {   width: 50px; / Adjust the width as needed /   height: 30px; / Adjust the height as needed /   background-color: #ccc; / Background color when the switch is off /   border: 1px solid #999;   border-radius: 15px; / To make it look like a circular button /   position: relative;   display: inline-block; / To align switches horizontally / }  / Style for the switch when it's in the 'on' state / .ui-switch.ui-switch-checked {   background-color: #00FF00; / Background color when the switch is on / }  / Style for the slider button inside the switch / .ui-switch .slider {   width: 25px; / Width of the sliding button /   height: 25px; / Height of the sliding button /   background-color: #fff; / Color of the sliding button /   border: 1px solid #999;   border-radius: 50%; / To make it look like a circular button /   position: absolute;   top: 2px; / Adjust the top position as needed */   transition: 0.4s; }",
         "x": 310,
-        "y": 1080,
+        "y": 1100,
         "wires": [
             [
                 "63969757996e178e"
@@ -1557,12 +1485,122 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 200,
+        "x": 320,
         "y": 1140,
         "wires": [
             [
                 "63969757996e178e"
             ]
+        ]
+    },
+    {
+        "id": "457403229d6397db",
+        "type": "rpi-dht22",
+        "z": "2d794f9e07d29405",
+        "g": "d3454d6a5e177906",
+        "name": "",
+        "topic": "SENSOR DHT22",
+        "dht": 22,
+        "pintype": "0",
+        "pin": "4",
+        "x": 430,
+        "y": 820,
+        "wires": [
+            [
+                "3756db758fd848c8",
+                "b9df6bdc8801748a"
+            ]
+        ]
+    },
+    {
+        "id": "70ae2892d7a65ed7",
+        "type": "inject",
+        "z": "2d794f9e07d29405",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 850,
+        "y": 820,
+        "wires": [
+            [
+                "91427380c53b6929"
+            ]
+        ]
+    },
+    {
+        "id": "91427380c53b6929",
+        "type": "rpi-dht22",
+        "z": "2d794f9e07d29405",
+        "name": "",
+        "topic": "SENSOR DHT22",
+        "dht": 22,
+        "pintype": "0",
+        "pin": "4",
+        "x": 1100,
+        "y": 820,
+        "wires": [
+            [
+                "619235101e9bd1d5",
+                "57a580ca980d413f"
+            ]
+        ]
+    },
+    {
+        "id": "aede79e9efb84a65",
+        "type": "ui_chart",
+        "z": "2d794f9e07d29405",
+        "name": "",
+        "group": "539c291ba1ff720f",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Temperature Chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "step",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "50",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1370,
+        "y": 880,
+        "wires": [
+            []
         ]
     },
     {
